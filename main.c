@@ -13,11 +13,13 @@ int main()
 
     while (true)
     {
+
         printf("Enter Function: ");
         scanf("%c", &ans);
         printf("\n");
         if (ans == 'A')
         {
+            int matrix[nV][nV];
             interNumbersMatrix(matrix);
         }
 
@@ -28,7 +30,7 @@ int main()
             printf("Enter j: ");
             scanf("%d", &j);
 
-            printf("Path exisits: %d \n ", pathExists(matrix, i, j));
+            printf("Path exisits: %s \n ", pathExists(matrix, i, j));
         }
 
         if (ans == 'C')

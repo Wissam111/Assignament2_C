@@ -58,7 +58,7 @@ void printMatrix(int matrix[][nV])
     }
 }
 
-bool pathExists(int graph[][nV], int a, int b)
+const char* pathExists(int graph[][nV], int a, int b)
 {
     int matrix[nV][nV], i, j, k;
 
@@ -90,10 +90,10 @@ bool pathExists(int graph[][nV], int a, int b)
 
     if (matrix[i][j] == INF)
     {
-        return false;
+        return "False";
     }
 
-    return true;
+    return "True";
 }
 
 void interNumbersMatrix(int matrix[][nV])
