@@ -167,20 +167,5 @@ int main()
             break;
         }
     }
-
-    //  if(ans =='C'){
-    //       interNumbersMatrix();
-    //   }
-
-    // int graph[nV][nV] = {
-    //     {0, 3, 5},
-    //     {3, 0, 1},
-    //     {5, 1, 0},
-
-    // };
-
-    // printf("The shortest Path is : %d \n", floydWarshall(graph, 0, 2));
-    // printf("if path exisits : %d \n" , pathExists(graph , 0,2));
-    // // floydWarshall(graph);
     return 0;
 }
