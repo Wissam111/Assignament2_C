@@ -4,10 +4,9 @@
 // #define N 4
 // int N;
 
-#define nV 10
+#define nV 3
 #define INF 99999
 void printMatrix(int matrix[][nV]);
-
 
 // Implementing floyd warshall algorithm
 int floydWarshall(int graph[][nV], int a, int b)
@@ -41,7 +40,7 @@ int floydWarshall(int graph[][nV], int a, int b)
     }
 
     printMatrix(matrix);
-    
+
     int ans = matrix[a][b];
     return ans;
 }
@@ -99,42 +98,89 @@ bool pathExists(int graph[][nV], int a, int b)
     return true;
 }
 
+void interNumbersMatrix(int matrix[][nV])
+{
+
+    int i, j;
+
+    printf("\nEnter matrix elements :\n");
+    for (i = 0; i < nV; i++)
+    {
+        for (j = 0; j < nV; j++)
+        {
+            printf("Enter element [%d,%d] : ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    printf("\nMatrix is :\n");
+    for (i = 0; i < nV; i++)
+    {
+        for (j = 0; j < nV; j++)
+        {
+            printf("%d\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 int main()
 {
-int matrix[nV][nV];
-    int i,j;
-     
-   
-    printf("\nEnter matrix elements :\n");
-    for(i=0;i< nV;i++)
+    int matrix[nV][nV];
+    // int i,j;
+    //  interNumbersMatrix(matrix);
+    int i, j;
+    char ans;
+
+    while (true)
     {
-        for(j=0;j< nV;j++)
+        printf("Enter Function: ");
+        scanf("%c", &ans);
+        printf("\n");
+        if (ans == 'A')
         {
-            printf("Enter element [%d,%d] : ",i,j);
-            scanf("%d",&matrix[i][j]);
+            interNumbersMatrix(matrix);
+        }
+
+        if (ans == 'B')
+        {
+            printf("Enter i: ");
+            scanf("%d", &i);
+            printf("Enter j: ");
+            scanf("%d", &j);
+
+            printf("Path exisits: %d \n ", pathExists(matrix, i, j));
+        }
+
+        if (ans == 'C')
+        {
+            printf("Enter i: ");
+            scanf("%d", &i);
+            printf("Enter j: ");
+            scanf("%d", &j);
+            printf("Shortest Path: %d \n", floydWarshall(matrix, i, j));
+        }
+
+        if (ans == 'D')
+        { 
+            printf("Done \n");
+            break;
         }
     }
- 
-    printf("\nMatrix is :\n");
-    for(i=0;i< nV;i++)
-    {
-        for(j=0;j< nV;j++)
-        {
-            printf("%d\t",matrix[i][j]);
-        }
-        printf("\n");   
-    }
-   
-    int graph[nV][nV] = {
-        {0, 3, 5},
-        {3, 0, 1},
-        {5, 1, 0},
 
-    };
+    //  if(ans =='C'){
+    //       interNumbersMatrix();
+    //   }
 
-    printf("The shortest Path is : %d \n", floydWarshall(graph, 0, 2));
-    printf("if path exisits : %d \n" , pathExists(graph , 0,2));
-    // floydWarshall(graph);
+    // int graph[nV][nV] = {
+    //     {0, 3, 5},
+    //     {3, 0, 1},
+    //     {5, 1, 0},
+
+    // };
+
+    // printf("The shortest Path is : %d \n", floydWarshall(graph, 0, 2));
+    // printf("if path exisits : %d \n" , pathExists(graph , 0,2));
+    // // floydWarshall(graph);
     return 0;
 }
