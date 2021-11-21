@@ -15,33 +15,30 @@ int main()
         printf("\n");
         if (ans == 'A')
         {
-
             interNumbersMatrix();
         }
 
         if (ans == 'B')
         {
 
-            scanf("%d", &i);
+            scanf("%d",&i);
 
-            scanf("%d", &j);
-            if (pathExists(i, j))
+            scanf("%d",&j);
+            if (pathExists(i,j))
             {
-                printf("True");
+                printf("True\n");
             }
             else
             {
-                printf("False");
+                printf("False\n");
             }
         }
 
         if (ans == 'C')
         {
-
-            scanf("%d", &i);
-
-            scanf("%d", &j);
-            printf("%d \n", floydWarshall(i, j));
+            scanf("%d",&i);
+            scanf("%d",&j);
+            printf("%d\n", floydWarshall(i, j));
         }
 
         if (ans == 'D')
