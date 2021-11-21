@@ -6,8 +6,7 @@
 int main()
 {
     int matrix[nV][nV];
-    // int i,j;
-    //  interNumbersMatrix(matrix);
+   
     int i, j;
     char ans;
 
