@@ -12,7 +12,6 @@ int main()
     {
 
         scanf("%c", &ans);
-        printf("\n");
         if (ans == 'A')
         {
             interNumbersMatrix();
