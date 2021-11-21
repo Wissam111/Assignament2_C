@@ -28,7 +28,7 @@ int floydWarshall(int a, int b)
     {
         for (j = 0; j < nV; j++)
         {
-            if (i != j && matrix[i][j] == 0)
+            if (i != j && graph[i][j] == 0)
             {
                 matrix[i][j] = INF;
             }
