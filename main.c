@@ -1,24 +1,22 @@
-
 #include <stdio.h>
 #include <stdbool.h>
 #include "my_mat.h"
 
 int main()
 {
-    int matrix[nV][nV];
-   
+
     int i, j;
     char ans;
 
     while (true)
     {
-
+        int matrix[nV][nV];
         printf("Enter Function: ");
         scanf("%c", &ans);
         printf("\n");
         if (ans == 'A')
         {
-            int matrix[nV][nV];
+
             interNumbersMatrix(matrix);
         }
 
@@ -42,7 +40,7 @@ int main()
         }
 
         if (ans == 'D')
-        { 
+        {
             printf("------------------Done---------------------- \n");
             break;
         }

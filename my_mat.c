@@ -6,24 +6,18 @@
 #define INF 99999
 void printMatrix(int matrix[][nV]);
 
-
 int floydWarshall(int graph[][nV], int a, int b)
 {
     int matrix[nV][nV], i, j, k;
 
     for (i = 0; i < nV; i++)
+    {
         for (j = 0; j < nV; j++)
+        {
+            matrix[i][j] = graph[i][j];
+        }
+    }
 
-            if (i != j && graph[i][j] == 0)
-            {
-                matrix[i][j] = INF;
-            }
-            else
-            {
-                matrix[i][j] = graph[i][j];
-            }
-
-  
     for (k = 0; k < nV; k++)
     {
         for (i = 0; i < nV; i++)
@@ -58,23 +52,18 @@ void printMatrix(int matrix[][nV])
     }
 }
 
-const char* pathExists(int graph[][nV], int a, int b)
+const char *pathExists(int graph[][nV], int a, int b)
 {
     int matrix[nV][nV], i, j, k;
 
     for (i = 0; i < nV; i++)
+    {
         for (j = 0; j < nV; j++)
+        {
+            matrix[i][j] = graph[i][j];
+        }
+    }
 
-            if (i != j && graph[i][j] == 0)
-            {
-                matrix[i][j] = INF;
-            }
-            else
-            {
-                matrix[i][j] = graph[i][j];
-            }
-
-   
     for (k = 0; k < nV; k++)
     {
         for (i = 0; i < nV; i++)
@@ -111,13 +100,16 @@ void interNumbersMatrix(int matrix[][nV])
         }
     }
 
-    printf("\nMatrix is :\n");
-    for (i = 0; i < nV; i++)
+    for (int i = 0; i < nV; i++)
     {
         for (j = 0; j < nV; j++)
         {
-            printf("%d\t", matrix[i][j]);
+            if (i != j && matrix[i][j] == 0)
+            {
+                matrix[i][j] = INF;
+            }
         }
-        printf("\n");
     }
+
+    printMatrix(matrix);
 }
