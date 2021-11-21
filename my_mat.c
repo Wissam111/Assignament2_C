@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "my_mat.h"
+#include<limits.h>
 
-#define INF 9999999
+// #define INF 99999
+
 #define nV 10
 int graph[nV][nV];
 
@@ -28,7 +30,7 @@ int floydWarshall(int a, int b)
         {
             if (i != j && matrix[i][j] == 0)
             {
-                matrix[i][j] = INF;
+                matrix[i][j] = INT_MAX;
             }
             else
             {
@@ -44,7 +46,7 @@ int floydWarshall(int a, int b)
             for (j = 0; j < nV; j++)
             {
 
-                if (matrix[i][k] + matrix[k][j] < matrix[i][j])
+                if ((matrix[i][k]!= INT_MAX && matrix[k][j] != INT_MAX)&&matrix[i][k] + matrix[k][j] < matrix[i][j])
                     matrix[i][j] = matrix[i][k] + matrix[k][j];
             }
         }
