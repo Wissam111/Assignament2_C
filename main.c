@@ -31,8 +31,12 @@ int main()
             scanf("%d", &i);
             // printf("Enter j: ");
             scanf("%d", &j);
-
-            printf("Path exisits: %s \n ", pathExists(i, j));
+            if(pathExists(i,j)){
+                printf("True");
+            }else{
+                printf("False");
+            }
+            
         }
 
         if (ans == 'C')

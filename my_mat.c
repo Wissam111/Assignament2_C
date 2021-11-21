@@ -81,7 +81,7 @@ void printMatrix(int matrix[][nV])
     }
 }
 
-const char *pathExists(int a, int b)
+bool pathExists(int a, int b)
 {
     int matrix[nV][nV], i, j, k;
 
@@ -118,8 +118,8 @@ const char *pathExists(int a, int b)
 
     if (matrix[a][b] == INF || matrix[a][b] == 0)
     {
-        return "False";
+        return false;
     }
 
-    return "True";
+    return true;
 }
