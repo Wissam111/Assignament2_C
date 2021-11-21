@@ -15,7 +15,7 @@ int main()
     {
 
         //  int matrix[nV][nV];
-        printf("Enter Function: ");
+        
 
         scanf("%c", &ans);
         printf("\n");

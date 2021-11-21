@@ -16,7 +16,7 @@ void interNumbersMatrix()
         }
     }
 }
-void printMatrix(int matrix[][nV]);
+// void printMatrix(int matrix[][nV]);
 
 int floydWarshall(int a, int b)
 {
@@ -54,7 +54,7 @@ int floydWarshall(int a, int b)
         }
     }
 
-    printMatrix(matrix);
+    // printMatrix(matrix);
 
     int ans = matrix[a][b];
 
@@ -66,20 +66,20 @@ int floydWarshall(int a, int b)
     return ans;
 }
 
-void printMatrix(int matrix[][nV])
-{
-    for (int i = 0; i < nV; i++)
-    {
-        for (int j = 0; j < nV; j++)
-        {
-            if (matrix[i][j] == INF)
-                printf("%4s", "INF");
-            else
-                printf("%4d", matrix[i][j]);
-        }
-        printf("\n");
-    }
-}
+// void printMatrix(int matrix[][nV])
+// {
+//     for (int i = 0; i < nV; i++)
+//     {
+//         for (int j = 0; j < nV; j++)
+//         {
+//             if (matrix[i][j] == INF)
+//                 printf("%4s", "INF");
+//             else
+//                 printf("%4d", matrix[i][j]);
+//         }
+//         printf("\n");
+//     }
+// }
 
 bool pathExists(int a, int b)
 {
