@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "my_mat.h"
-#include <limits.h>
 
+#define INF 9999999
 #define nV 10
 int graph[nV][nV];
 
@@ -28,7 +28,7 @@ int floydWarshall(int a, int b)
         {
             if (i != j && matrix[i][j] == 0)
             {
-                matrix[i][j] = INT_MAX;
+                matrix[i][j] = INF;
             }
             else
             {
@@ -52,7 +52,7 @@ int floydWarshall(int a, int b)
 
     int ans = matrix[a][b];
 
-    if (ans == 0 || ans == INT_MAX)
+    if (ans == 0 || ans == INF)
     {
         return -1;
     }
@@ -65,7 +65,7 @@ bool pathExists(int a, int b)
 
     int ans = floydWarshall(a, b);
 
-    if (ans == INT_MAX || ans == 0)
+    if (ans == INF || ans == 0)
     {
         return false;
     }
