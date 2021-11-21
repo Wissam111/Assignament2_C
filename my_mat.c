@@ -17,6 +17,17 @@ int floydWarshall(int graph[][nV], int a, int b)
             matrix[i][j] = graph[i][j];
         }
     }
+    
+    for (int i = 0; i < nV; i++)
+    {
+        for (j = 0; j < nV; j++)
+        {
+            if (i != j && matrix[i][j] == 0)
+            {
+                matrix[i][j] = INF;
+            }
+        }
+    }
 
     for (k = 0; k < nV; k++)
     {
@@ -35,7 +46,7 @@ int floydWarshall(int graph[][nV], int a, int b)
 
     int ans = matrix[a][b];
 
-    if (ans == 0)
+    if (ans == 0 || ans == INF)
     {
         return -1;
     }
@@ -67,6 +78,16 @@ const char *pathExists(int graph[][nV], int a, int b)
         for (j = 0; j < nV; j++)
         {
             matrix[i][j] = graph[i][j];
+        }
+    }
+      for (int i = 0; i < nV; i++)
+    {
+        for (j = 0; j < nV; j++)
+        {
+            if (i != j && matrix[i][j] == 0)
+            {
+                matrix[i][j] = INF;
+            }
         }
     }
 
