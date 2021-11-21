@@ -34,6 +34,12 @@ int floydWarshall(int graph[][nV], int a, int b)
     printMatrix(matrix);
 
     int ans = matrix[a][b];
+
+    if (ans == 0)
+    {
+        return -1;
+    }
+
     return ans;
 }
 
@@ -77,7 +83,7 @@ const char *pathExists(int graph[][nV], int a, int b)
         }
     }
 
-    if (matrix[i][j] == INF)
+    if (matrix[a][b] == INF || matrix[a][b] == 0)
     {
         return "False";
     }

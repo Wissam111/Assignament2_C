@@ -7,7 +7,7 @@ int main()
 
     int i, j;
     char ans;
-
+    
     while (true)
     {
         int matrix[nV][nV];
