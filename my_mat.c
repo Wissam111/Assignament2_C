@@ -4,9 +4,21 @@
 
 #define nV 10
 #define INF 99999
+int graph[nV][nV];
+
+void interNumbersMatrix()
+{
+    for (int i = 0; i < nV; i++){
+
+        for (int j = 0; j < nV; j++)
+        {
+            scanf(" %d", &graph[i][j]);
+        }
+    }
+}
 void printMatrix(int matrix[][nV]);
 
-int floydWarshall(int graph[][nV], int a, int b)
+int floydWarshall(int a, int b)
 {
     int matrix[nV][nV], i, j, k;
 
@@ -17,7 +29,7 @@ int floydWarshall(int graph[][nV], int a, int b)
             matrix[i][j] = graph[i][j];
         }
     }
-    
+
     for (int i = 0; i < nV; i++)
     {
         for (j = 0; j < nV; j++)
@@ -69,7 +81,7 @@ void printMatrix(int matrix[][nV])
     }
 }
 
-const char *pathExists(int graph[][nV], int a, int b)
+const char *pathExists(int a, int b)
 {
     int matrix[nV][nV], i, j, k;
 
@@ -80,7 +92,7 @@ const char *pathExists(int graph[][nV], int a, int b)
             matrix[i][j] = graph[i][j];
         }
     }
-      for (int i = 0; i < nV; i++)
+    for (i = 0; i < nV; i++)
     {
         for (j = 0; j < nV; j++)
         {
@@ -110,35 +122,4 @@ const char *pathExists(int graph[][nV], int a, int b)
     }
 
     return "True";
-}
-
-void interNumbersMatrix(int matrix[][nV])
-{
-
-    int i, j;
-
-    printf("\nEnter matrix elements :\n");
-    for (i = 0; i < nV; i++)
-    {
-        for (j = 0; j < nV; j++)
-        {
-            printf("Enter element [%d,%d] : ", i, j);
-            scanf("%d", &matrix[i][j]);
-        }
-    }
-
-    for (int i = 0; i < nV; i++)
-    {
-        for (j = 0; j < nV; j++)
-        {
-            if (i != j && matrix[i][j] == 0)
-            {
-                matrix[i][j] = INF;
-            }
-        }
-    }
-     
-    printMatrix(matrix);
-    printf("------------------- EZ--------------");
-    floydWarshall(matrix , 0 ,3);
 }

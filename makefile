@@ -8,12 +8,14 @@ all:	connections
 
 
 #dynamic
-connections:	main.o libmylib.so
-			$(CC) $(FLAGS)	-o connections main.o ./libmylib.so
+connections: main.o my_mat.o
+		$(CC) $(FLAGS)	-o connections main.o my_mat.o
+# connections:	main.o libmylib.so
+# 			$(CC) $(FLAGS)	-o connections main.o ./libmylib.so
 		
 #creating dynamic lib .so
-libmylib.so:	my_mat.o
-				$(CC)	-shared	-o	libmylib.so	my_mat.o	
+# libmylib.so:	my_mat.o
+# 				$(CC)	-shared	-o	libmylib.so	my_mat.o	
 
 main.o:	main.c my_mat.h
 			$(CC)	$(FLAGS) -c main.c
