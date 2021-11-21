@@ -14,7 +14,7 @@ int main()
         scanf("%c", &ans);
         if (ans == 'A')
         {
-            interNumbersMatrix();
+            enterNumbersMatrix();
         }
 
         if (ans == 'B')

@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "my_mat.h"
+#include <limits.h>
 
 #define nV 10
-#define INF 99999
 int graph[nV][nV];
 
-void interNumbersMatrix()
+void enterNumbersMatrix()
 {
-    for (int i = 0; i < nV; i++){
+    for (int i = 0; i < nV; i++)
+    {
 
         for (int j = 0; j < nV; j++)
         {
@@ -16,7 +17,6 @@ void interNumbersMatrix()
         }
     }
 }
-
 
 int floydWarshall(int a, int b)
 {
@@ -26,17 +26,13 @@ int floydWarshall(int a, int b)
     {
         for (j = 0; j < nV; j++)
         {
-            matrix[i][j] = graph[i][j];
-        }
-    }
-
-    for (int i = 0; i < nV; i++)
-    {
-        for (j = 0; j < nV; j++)
-        {
             if (i != j && matrix[i][j] == 0)
             {
-                matrix[i][j] = INF;
+                matrix[i][j] = INT_MAX;
+            }
+            else
+            {
+                matrix[i][j] = graph[i][j];
             }
         }
     }
@@ -54,11 +50,9 @@ int floydWarshall(int a, int b)
         }
     }
 
-  
-
     int ans = matrix[a][b];
 
-    if (ans == 0 || ans == INF)
+    if (ans == 0 || ans == INT_MAX)
     {
         return -1;
     }
@@ -68,40 +62,10 @@ int floydWarshall(int a, int b)
 
 bool pathExists(int a, int b)
 {
-    int matrix[nV][nV], i, j, k;
 
-    for (i = 0; i < nV; i++)
-    {
-        for (j = 0; j < nV; j++)
-        {
-            matrix[i][j] = graph[i][j];
-        }
-    }
-    for (i = 0; i < nV; i++)
-    {
-        for (j = 0; j < nV; j++)
-        {
-            if (i != j && matrix[i][j] == 0)
-            {
-                matrix[i][j] = INF;
-            }
-        }
-    }
+    int ans = floydWarshall(a, b);
 
-    for (k = 0; k < nV; k++)
-    {
-        for (i = 0; i < nV; i++)
-        {
-            for (j = 0; j < nV; j++)
-            {
-
-                if (matrix[i][k] + matrix[k][j] < matrix[i][j])
-                    matrix[i][j] = matrix[i][k] + matrix[k][j];
-            }
-        }
-    }
-
-    if (matrix[a][b] == INF || matrix[a][b] == 0)
+    if (ans == INT_MAX || ans == 0)
     {
         return false;
     }
