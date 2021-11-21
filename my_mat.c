@@ -137,6 +137,8 @@ void interNumbersMatrix(int matrix[][nV])
             }
         }
     }
-
+     
     printMatrix(matrix);
+    printf("------------------- EZ--------------");
+    floydWarshall(matrix , 0 ,3);
 }
