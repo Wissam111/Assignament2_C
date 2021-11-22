@@ -4,7 +4,7 @@
 #include <limits.h>
 
 #define INF 99999
-#define nV 3
+#define nV 10
 int graph[nV][nV];
 
 void enterNumbersMatrix()
