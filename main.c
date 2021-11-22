@@ -7,17 +7,19 @@ int main()
 
     int i, j;
     char ans;
-    bool run = true;
-    while (run)
+
+    while (true)
     {
 
         scanf("%c", &ans);
-        switch (ans)
+        if (ans == 'A')
         {
-        case 'A':
             enterNumbersMatrix();
-            break;
-        case 'B':
+        }
+
+        if (ans == 'B')
+        {
+
             scanf("%d", &i);
 
             scanf("%d", &j);
@@ -29,18 +31,19 @@ int main()
             {
                 printf("False\n");
             }
-            break;
+        }
 
-        case 'C':
+        if (ans == 'C')
+        {
             scanf("%d", &i);
             scanf("%d", &j);
             printf("%d\n", floydWarshall(i, j));
-            break;
+        }
 
-        case 'D':
-            run = false;
+        if (ans == 'D')
+        {
             break;
         }
-        return 0;
     }
+    return 0;
 }
