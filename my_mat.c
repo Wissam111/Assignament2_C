@@ -3,7 +3,7 @@
 #include "my_mat.h"
 #include <limits.h>
 
-#define INF 99999
+// #define INF 99999
 #define nV 10
 int graph[nV][nV];
 
@@ -35,8 +35,9 @@ int floydWarshall(int a, int b)
     {
         for (j = 0; j < nV; j++)
         {
-            if (i != j && matrix[i][j] == 0){
-                matrix[i][j] = INF;
+            if (i != j && matrix[i][j] == 0)
+            {
+                matrix[i][j] = INT_MAX;
             }
         }
     }
@@ -48,6 +49,11 @@ int floydWarshall(int a, int b)
             for (j = 0; j < nV; j++)
             {
 
+                if (matrix[i][k] == INT_MAX || matrix[k][j] == INT_MAX)
+                {
+                    continue;
+                }
+
                 if (matrix[i][k] + matrix[k][j] < matrix[i][j])
                     matrix[i][j] = matrix[i][k] + matrix[k][j];
             }
@@ -56,7 +62,7 @@ int floydWarshall(int a, int b)
 
     int ans = matrix[a][b];
 
-    if (ans == 0 || ans == INF)
+    if (ans == 0 || ans == INT_MAX)
     {
         return -1;
     }
