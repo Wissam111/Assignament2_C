@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "my_mat.h"
-#include<limits.h>
+#include <limits.h>
 
 #define INF 99999
-
-#define nV 10
+#define nV 3
 int graph[nV][nV];
 
 void enterNumbersMatrix()
@@ -28,13 +27,16 @@ int floydWarshall(int a, int b)
     {
         for (j = 0; j < nV; j++)
         {
-            if (i != j && graph[i][j] == 0)
-            {
+
+            matrix[i][j] = graph[i][j];
+        }
+    }
+    for (i = 0; i < nV; i++)
+    {
+        for (j = 0; j < nV; j++)
+        {
+            if (i != j && matrix[i][j] == 0){
                 matrix[i][j] = INF;
-            }
-            else
-            {
-                matrix[i][j] = graph[i][j];
             }
         }
     }
@@ -67,7 +69,7 @@ bool pathExists(int a, int b)
 
     int ans = floydWarshall(a, b);
 
-    if (ans == INF || ans == 0)
+    if (ans == -1)
     {
         return false;
     }
