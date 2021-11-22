@@ -1,29 +1,23 @@
 CC=gcc
 FLAGS=-Wall	-g
-
+AR=ar
 
 
 all:	connections
 		
 
 
-#dynamic
-connections: main.o my_mat.o
-		$(CC) $(FLAGS)	-o connections main.o my_mat.o
-# connections:	main.o libmylib.so
-# 			$(CC) $(FLAGS)	-o connections main.o ./libmylib.so
-		
-#creating dynamic lib .so
-# libmylib.so:	my_mat.o
-# 				$(CC)	-shared	-o	libmylib.so	my_mat.o	
 
+connections:	main.o libmylib.a	
+			$(CC) $(FLAGS)	-o connections main.o ./libmylib.a
+#static lib	
+libmylib.a:	my_mat.o
+			$(AR)	-rcs libmylib.a	my_mat.o
 main.o:	main.c my_mat.h
 			$(CC)	$(FLAGS) -c main.c
 
 my_mat.o:	my_mat.c my_mat.h 
 		$(CC)	$(FLAGS) -c my_mat.c
-
-
 
 
 .PHONY:	clean
