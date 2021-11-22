@@ -3,7 +3,7 @@
 #include "my_mat.h"
 #include <limits.h>
 
-// #define INF 99999
+
 #define nV 10
 int graph[nV][nV];
 
